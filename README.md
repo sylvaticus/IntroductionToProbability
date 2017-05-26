@@ -10,6 +10,7 @@ The (now open-sourced) Grinstead and Snell 1998 "Introduction to probability" bo
 
 
 Book: GNU Free documentation Licence (FDL)
+
 Implementation of the computer algorithms: 
 - Julia language: MIT Licence
 
