@@ -24,20 +24,35 @@
 # (only once) `Pkg.add("PkgName")`
 #
 # ------------------------------------------------------------------------------
-# 03.07 - BinomialProbabilities
-# Compute a sequence of probabilities of bernulli trials
+# 03.08 - BinomialPlot
+# Plot binomial distribution
 # ------------------------------------------------------------------------------
 
+using StatsBase, Plots
+unicodeplots()
+#pyplot() # for better charts
 
-n = big(100)
-p = 0.5
-J = big(45):big(55)
-
+P = [0.5, 0.3]
+N1 = [40,80,160]
+N2 = [30,120,270]
 
 println("Bernulli probabilities")
-println("k \t b($n,$p,k)")
-for j in J
-  binCoeff = factorial(n) / (factorial(j) * factorial(n-j)) # julia native: binomial(n,j)
-  ber = binCoeff * p^j * (1-p)^(n-j)
-  println("$j \t $(Float16(ber))" )
+
+for p in P
+    if(p==0.5)
+        N = N1
+    else
+        N = N2
+    end
+    println("**** p = $p ****")
+    for n in N
+        outs=[]
+        for k in 0:n
+          push!(outs, binomial(big(n),big(k)) * p^k * (1-p)^(n-k))
+        end
+        bar(collect(0:n), outs, title="p=$p, n=$n", xticks = 0:10:n,)
+        gui()
+        print("Press enter to continue.. ")
+        rawinput = readline()
+    end
 end
