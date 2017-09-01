@@ -1,7 +1,7 @@
 # Introduction to Probability
 
 
-The (now open-sourced) Grinstead and Snell 1998 "Introduction to probability" book and related computer algorithms.
+Clone of the (now open-sourced) Grinstead and Snell 1998 "Introduction to probability" book and related computer algorithms.
 
 
 ![](booktitle.jpg)
